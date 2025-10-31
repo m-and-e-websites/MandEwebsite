@@ -5,94 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>M&E Websites — Clean, fast sites that convert</title>
   <meta name="theme-color" content="#0C0C0C" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --bg:#0C0C0C; --surface:#121212; --elev:#181818;
-      /* exact off-white sampled from your logo */
-      --text:#EAE4D6;
-      --muted:#EAE4D6;
-      --border:#262626;
-      --radius:16px;
-      --ring: rgba(234,228,214,.35);
-    }
-
+    :root{ --bg:#0C0C0C; --surface:#121212; --elev:#181818; --text:#EAE4D6; --muted:#EAE4D6; --border:#262626; --radius:16px; --ring:rgba(234,228,214,.35); }
     *,*::before,*::after{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
     .container{max-width:1120px;margin:0 auto;padding:0 20px}
-
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50;
-      background:linear-gradient(180deg,rgba(12,12,12,.9),rgba(12,12,12,.55));
-      backdrop-filter:blur(8px); border-bottom:1px solid var(--border);
-    }
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(12,12,12,.9),rgba(12,12,12,.55));backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
     nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{height:56px;width:auto}
     @media (max-width:640px){ .brand img{height:44px} }
-
-    /* Buttons */
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 18px;border-radius:999px;font-weight:600;
-      border:1px solid var(--border); background:transparent; color:var(--text);
-      transition:transform .15s ease, background .15s ease, box-shadow .15s ease, border-color .15s ease;
-      cursor:pointer;
-    }
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:999px;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--text);transition:transform .15s,background .15s,box-shadow .15s,border-color .15s;cursor:pointer}
     .btn:hover{background:var(--elev);transform:translateY(-1px)}
     .btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
     .btn-primary{background:var(--surface)}
-
-    /* Hero */
     .hero{padding:86px 0 54px;border-bottom:1px solid var(--border)}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    .h1{
-      font-family:"Space Grotesk",Inter; font-weight:700; letter-spacing:-.5px;
-      font-size:clamp(32px,6vw,56px); line-height:1.1; margin:0 0 14px;
-    }
-    .lead{color:var(--text); font-size:clamp(16px,2.4vw,20px); margin:0 0 22px}
-
-    /* Showcase with live embed */
+    .h1{font-family:"Space Grotesk",Inter;font-weight:700;letter-spacing:-.5px;font-size:clamp(32px,6vw,56px);line-height:1.1;margin:0 0 14px}
+    .lead{color:var(--text);font-size:clamp(16px,2.4vw,20px);margin:0 0 22px}
     .showcase{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
     .shot{border-radius:12px;overflow:hidden;background:#0f0f0f;border:1px solid var(--border);display:block}
-    .shot.embed{padding:0; aspect-ratio:16/10;}
+    .shot.embed{padding:0;aspect-ratio:16/10}
     .shot.embed iframe{width:100%;height:100%;border:0}
-
-    /* Sections */
     section{padding:52px 0}
     .section-h{font-family:"Space Grotesk",Inter;font-weight:700;font-size:clamp(22px,3.4vw,34px);margin:0 0 10px}
     .section-p{color:var(--text);margin:0 0 20px}
     .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
-
-    /* Footer */
     footer{border-top:1px solid var(--border);padding:26px 0;color:var(--text)}
-
-    /* Responsive */
-    @media (max-width:980px){ .hero-grid{grid-template-columns:1fr} }
+    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container">
       <nav>
         <a class="brand" href="index.html" aria-label="M&E Websites">
           <img src="assets/logo.png" alt="M&E Websites logo">
         </a>
-        <div style="display:flex;gap:10px">
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="https://wa.me/447508402131?text=Hi%20I%27m%20interested%20in%20a%20website" target="_blank" rel="noopener">WhatsApp</a>
           <a class="btn btn-primary" href="query.html">Submit a query</a>
         </div>
       </nav>
@@ -100,7 +56,6 @@
   </header>
 
   <main id="top">
-    <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -111,7 +66,6 @@
           </div>
         </div>
 
-        <!-- Live project preview (auto-updates from your repo) -->
         <div class="showcase">
           <div class="shot embed" title="Erin’s Elegance — live preview">
             <iframe
@@ -129,7 +83,6 @@
       </div>
     </section>
 
-    <!-- Quick value props -->
     <section>
       <div class="container">
         <h2 class="section-h">Why choose us</h2>
@@ -150,8 +103,7 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
