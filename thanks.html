@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thanks — M&E Websites</title>
+  <meta name="theme-color" content="#0C0C0C" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0C0C0C; --surface:#121212; --elev:#181818;
+      --text:#EAE4D6; --muted:#EAE4D6; --border:#262626;
+      --radius:16px; --ring:rgba(234,228,214,.35);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+      display:grid;place-items:center;
+    }
+    .wrap{max-width:720px;width:100%;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand img{height:56px;width:auto}
+    @media (max-width:640px){ .brand img{height:44px} }
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+    h1{
+      font-family:"Space Grotesk", Inter; font-weight:700; letter-spacing:-.3px;
+      font-size:clamp(28px,5.6vw,44px); margin:0 0 10px;
+    }
+    p{margin:0 0 14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:999px;border:1px solid var(--border);
+      background:var(--surface);color:var(--text);font-weight:600;
+      transition:transform .15s, background .15s, box-shadow .15s;
+    }
+    .btn:hover{background:var(--elev);transform:translateY(-1px)}
+    .fine{opacity:.9}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="index.html" aria-label="M&E Websites">
+        <img src="assets/logo.png" alt="M&E Websites logo">
+      </a>
+      <a class="btn" href="index.html">Back to home</a>
+    </header>
+
+    <div class="card">
+      <h1>Thanks — we’ve got your query</h1>
+      <p>We’ll review your details and reply within 24 hours.</p>
+      <p class="fine">If you need to add anything, just hit reply on our email once it arrives.</p>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="index.html">Return to home</a>
+        <a class="btn" href="query.html">Send another query</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
