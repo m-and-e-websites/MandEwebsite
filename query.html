@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submit a query — M&E Websites</title>
+  <meta name="theme-color" content="#0C0C0C" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0C0C0C; --surface:#121212; --elev:#181818;
+      --text:#EAE4D6; --muted:#EAE4D6;
+      --border:#262626; --radius:16px;
+      --ring:rgba(234,228,214,.35);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; line-height:1.6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:720px;margin:0 auto;padding:0 20px}
+
+    header{
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,rgba(12,12,12,.9),rgba(12,12,12,.55));
+      backdrop-filter:blur(8px); position:sticky; top:0; z-index:50;
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand img{height:56px;width:auto}
+    @media (max-width:640px){ .brand img{height:44px} }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 16px;border-radius:999px;border:1px solid var(--border);
+      background:transparent;color:var(--text);font-weight:600;
+      transition:transform .15s, background .15s, box-shadow .15s, border-color .15s;
+      cursor:pointer;
+    }
+    .btn:hover{background:var(--elev);transform:translateY(-1px)}
+    .btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
+    .btn-primary{background:var(--surface)}
+
+    main{padding:56px 0}
+    h1{
+      font-family:"Space Grotesk",Inter; font-weight:700; letter-spacing:-.3px;
+      font-size:clamp(26px,4.8vw,40px); margin:0 0 10px;
+    }
+    p.muted{color:var(--text);margin:0 0 20px}
+
+    .card{
+      background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;
+      position:relative; z-index:1;
+    }
+    form{display:grid;gap:14px; position:relative; z-index:1;}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{font-weight:600;font-size:14px}
+    input, textarea, select{
+      width:100%; padding:12px 14px; border-radius:12px;
+      background:#0f0f0f; color:var(--text);
+      border:1px solid var(--border);
+      transition:border-color .15s, box-shadow .15s, background .15s;
+    }
+    input::placeholder, textarea::placeholder{ color:rgba(234,228,214,.85) }
+    input:focus, textarea:focus, select:focus{
+      outline:none; border-color:#3a3a3a; box-shadow:0 0 0 4px var(--ring);
+    }
+    textarea{min-height:120px; resize:vertical}
+    .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .note{font-size:13px; opacity:.9}
+    footer{border-top:1px solid var(--border);padding:26px 0;color:var(--text)}
+    @media (max-width:720px){ .row{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="index.html" aria-label="M&E Websites">
+          <img src="assets/logo.png" alt="M&E Websites logo">
+        </a>
+        <a class="btn" href="index.html">Back to home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Submit a query</h1>
+      <p class="muted">Pop in your details and we’ll get back to you within 24 hours.</p>
+
+      <div class="card">
+        <!-- Formspree with JS-redirect on success -->
+        <form id="query-form" method="POST" action="https://formspree.io/f/xeopgkbo">
+          <div class="row">
+            <div>
+              <label for="business_name">Business name</label>
+              <input id="business_name" name="business_name" type="text" placeholder="Your business name" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" placeholder="+44 7…">
+            </div>
+            <div>
+              <label for="contact">Preferred contact</label>
+              <select id="contact" name="contact" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Email</option>
+                <option>Phone</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="message">Project notes (include type of business, goals, examples, etc)</label>
+            <textarea id="message" name="message" required
+              placeholder="Tell us what you need (type of business, goals, example sites, deadline, budget range)."></textarea>
+          </div>
+
+          <!-- Helper fields -->
+          <input type="hidden" name="_subject" value="New query — M&E Websites">
+          <input type="hidden" name="_accept" value="application/json">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="actions">
+            <button class="btn" type="button" onclick="history.back()">Cancel</button>
+            <button id="submitBtn" class="btn btn-primary" type="submit">Send query</button>
+            <span id="status" class="note" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <span>© <span id="y"></span> M&E Websites</span>
+      <span>Bradford, UK</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Submit via fetch, then redirect to thanks.html on success
+    const form = document.getElementById('query-form');
+    const submitBtn = document.getElementById('submitBtn');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = '';
+      submitBtn.disabled = true;
+
+      const redirectURL = new URL('thanks.html', window.location.href).href;
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+
+        if (res.ok) {
+          window.location.assign(redirectURL);
+        } else {
+          status.textContent = 'Something went wrong. Please try again.';
+          submitBtn.disabled = false;
+        }
+      } catch (err) {
+        status.textContent = 'Network error. Please check your connection and try again.';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
